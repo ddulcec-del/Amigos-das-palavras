@@ -2,6 +2,7 @@
 <html lang="pt-PT">
 <head>
 <meta charset="utf-8">
+<meta name="color-scheme" content="light">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Amigos das Palavras</title>
 <meta name="description" content="Lições e jogos de leitura e escrita para alunos do 4.º ano com dislexia.">
@@ -19,15 +20,6 @@
   --c0:#8A5A00; --c1:#2557C9; --c2:#6E3FCB; --c3:#0B7A6E; --c4:#B04A08; --c5:#2E7D32; --c6:#B81E56;
   --c:var(--c1);
   --display:'Fredoka','Lexend',system-ui,sans-serif;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#0F1726; --surface:#18233A; --ink:#EEF3FC; --muted:#AEBBD3; --line:#2C3B5A; --soft:#1F2D49;
-    --ok:#6FD58F; --okbg:#173A27; --bad:#FF9C94; --badbg:#47201E; --on:#0B1220; --focus:#EEF3FC;
-    --hl:#7A6200; --hlink:#FFFFFF;
-    --c0:#F2C14E; --c1:#8DB1FF; --c2:#B79BFF; --c3:#5FD6C6; --c4:#FFAA6B; --c5:#8EDB8F; --c6:#FF8FB5;
-    color-scheme:dark;
-  }
 }
 :root[data-theme="dark"]{
   --bg:#0F1726; --surface:#18233A; --ink:#EEF3FC; --muted:#AEBBD3; --line:#2C3B5A; --soft:#1F2D49;
@@ -482,7 +474,7 @@ function initShell(){
   applyPrefs();
   $('#a-minus').onclick=()=>{S.prefs.scale=Math.max(.9,+(S.prefs.scale-.1).toFixed(2));applyPrefs();save();};
   $('#a-plus').onclick=()=>{S.prefs.scale=Math.min(1.5,+(S.prefs.scale+.1).toFixed(2));applyPrefs();save();};
-  $('#theme').onclick=()=>{const dark=document.documentElement.getAttribute('data-theme')==='dark'||(!S.prefs.theme&&matchMedia('(prefers-color-scheme: dark)').matches);S.prefs.theme=dark?'light':'dark';applyPrefs();save();};
+  $('#theme').onclick=()=>{const dark=document.documentElement.getAttribute('data-theme')==='dark';S.prefs.theme=dark?'light':'dark';applyPrefs();save();};
   addEventListener('hashchange',route);
   route();
 }
